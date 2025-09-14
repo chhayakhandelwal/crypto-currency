@@ -18,7 +18,11 @@ const fetchPrice = async (ctype) => {
 
         res.innerHTML = `
             <tr>
+                <td>Coin</td>
                 <td>${name}</td>
+            </tr>
+            <tr>
+                <td>Price</td>
                 <td>${price} ${target}</td>
             </tr>
             <tr>
@@ -26,15 +30,15 @@ const fetchPrice = async (ctype) => {
                 <td>${volume}</td>
             </tr>
             <tr>
-                <td>Change</td>
+                <td>Change (1d)</td>
                 <td>${priceChange1d}</td>
             </tr>
         `;
 
+        // auto-refresh after 10 sec
         upd = setTimeout(() => fetchPrice(ctype), 10000);
     } catch (err) {
         res.innerHTML = `<tr><td colspan="2" style="color:red">Error: Invalid coin or API issue</td></tr>`;
         console.error(err);
     }
 };
-
