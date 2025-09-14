@@ -37,3 +37,4 @@ const fetchPrice = async (ctype) => {
         console.error(err);
     }
 };
+
